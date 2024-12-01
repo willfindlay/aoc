@@ -6,18 +6,22 @@ import (
 	"os/exec"
 )
 
-// CopyToClipboard is for macOS
+// CopyToClipboard is for Linux
 func CopyToClipboard(text string) error {
-	command := exec.Command("pbcopy")
+	command := exec.Command("xclip")
+	command.Args = []string{
+		"-selection",
+		"clipboard",
+	}
 	command.Stdin = bytes.NewReader([]byte(text))
 
 	if err := command.Start(); err != nil {
-		return fmt.Errorf("error starting pbcopy command: %w", err)
+		return fmt.Errorf("error starting xclip command: %w", err)
 	}
 
 	err := command.Wait()
 	if err != nil {
-		return fmt.Errorf("error running pbcopy %w", err)
+		return fmt.Errorf("error running xclip %w", err)
 	}
 
 	return nil
