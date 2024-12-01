@@ -1,7 +1,5 @@
-![450 stars!](./450.png)
-
-### Quick Note
-I started this in a pre-generics Go/Golang world. Maybe one day I'll come back and learn generics as they'd be quite useful here. But that's for future me.
+### Attribution
+Forked from [alexchao26's template][template].
 
 ## Running Locally
 ### Requirements
@@ -36,3 +34,4 @@ make input DAY=1 YEAR=2020
 ```
 
 [embed]: https://golang.org/pkg/embed/
+[template]: https://github.com/alexchao26/advent-of-code-go
